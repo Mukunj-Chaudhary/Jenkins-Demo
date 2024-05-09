@@ -17,13 +17,8 @@ pipeline {
      choice(name: 'TARGET_ENV', choices: ['UAT', 'SIT', 'STAGING'], description: 'Pick something')
     }
  
-    stages {
-        stage('Checkout SCM') {
-            steps {
-                checkout scm
-                sh "echo $CHEIF_AUTHOR"
-            }
-        }
+
+        
         stage('Compile') {
             steps {
                 sh 'mvn compile'
